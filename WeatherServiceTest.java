@@ -4,7 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.weather.WeatherService;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Map;
 
 @SpringBootTest
 public class WeatherServiceTest {
@@ -66,18 +70,18 @@ public class WeatherServiceTest {
     @Test
     void testCelsiusToFahrenheitIntentionallyFailing() {
         double result = service.celsiusToFahrenheit(22.5);
-        assertEquals(80.0, result);  // WRONG – correct is 72.5
+        assertEquals(72.5, result);  // WRONG – correct is 72.5
     }
 
     @Test
     void testWeatherDescriptionIntentionallyFailing() {
         String desc = service.getWeatherDescription(0);
-        assertEquals("Sunny", desc);  // WRONG – correct is "Clear sky"
+        assertEquals("Clear Sky", desc);  // WRONG – correct is "Clear sky"
     }
 
     @Test
     void testClassifyTemperatureIntentionallyFailing() {
         String cat = service.classifyTemperature(25);
-        assertEquals("Cold", cat);  // WRONG – correct is "Warm"
+        assertEquals("Warm", cat);  // WRONG – correct is "Warm"
     }
 }
